@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
           <div className={styles.newsletter}>
             <h4>Newsletter</h4>
             <form className={styles.form}>
-              <input type="email" placeholder="Your email" /> 
+              {/* <input type="email" placeholder="Your email" />  */}
               {/* <button type="submit">Subscribe</button> */}
             </form>
             <div className={styles.socials}>
