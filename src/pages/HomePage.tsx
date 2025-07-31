@@ -1,24 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './HomePage.css';
-const PRODUCTS_PER_SLIDE = 4;
+import styles from './HomePage.module.css';
 
-const slides = [
-  {
-    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
-    title: 'Shine Like Never Before',
-    subtitle: 'Discover premium car care products for a brilliant finish.'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80',
-    title: 'Gentle & Effective',
-    subtitle: 'Our formulas clean and protect with a touch of elegance.'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80',
-    title: 'Care for Every Detail',
-    subtitle: 'Elevate your car’s look with our curated essentials.'
-  }
-];
+const PRODUCTS_PER_SLIDE = 4;
 
 const products = [
   {
@@ -114,43 +99,60 @@ const products = [
 ];
 
 const HomePage: React.FC = () => {
-  const [current, setCurrent] = React.useState(0);
-  const length = slides.length;
-  const [productSlide, setProductSlide] = React.useState(0);
+  const [productSlide, setProductSlide] = useState(0);
   const productSlides = Math.ceil(products.length / PRODUCTS_PER_SLIDE);
-
-  React.useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, [length]);
 
   const handlePrev = () => setProductSlide((prev) => (prev === 0 ? productSlides - 1 : prev - 1));
   const handleNext = () => setProductSlide((prev) => (prev === productSlides - 1 ? 0 : prev + 1));
 
   return (
     <>
-      <div className="sliderContainer">
-        <div className="slider">
-          {slides.map((slide, idx) => (
-            <div className={`slide${idx === current ? ' active' : ''}`} key={idx} style={{ backgroundImage: `url(${slide.image})` }} >
-              <div className="slideContent"> <h2>{slide.title}</h2> <p>{slide.subtitle}</p> </div>
+      {/* Hero Section */}
+      <section className={styles.heroSection}>
+        <div className={styles.heroContainer}>
+          <div className={styles.heroContent}>
+            {/* Left Column - Text Content */}
+            <div className={styles.textColumn}>
+              <div className={styles.scriptText}>premium</div>
+              <h1 className={styles.mainTitle}>
+                PREMIUM CAR CARE<br />
+                SOLUTIONS
+              </h1>
+              <p className={styles.description}>
+                Discover our complete range of professional car care products designed to keep your vehicle looking its best. 
+                From exterior protection to interior detailing, we provide everything you need for showroom-worthy results.
+              </p>
+              <Link to="/products" className={styles.ctaButton}>
+                SHOP NOW
+              </Link>
             </div>
-          ))}
-          <div className="sliderDots">
-            {
-              slides.map((_, idx) => (
-                <span
-                  key={idx}
-                  className={`dot${idx === current ? ' active' : ''}`}
-                  onClick={() => setCurrent(idx)}
+
+            {/* Right Column - Single Image with Reflective Overlay */}
+            <div className={styles.imageColumn}>
+              <div className={styles.imageContainer}>
+                <img 
+                  src="https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=800&q=80" 
+                  alt="Premium Car Care Products" 
+                  className={styles.heroImage}
                 />
-              ))
-            }
+                <div className={styles.reflectiveOverlay}></div>
+                <div className={styles.imageOverlay}>
+                  <div className={styles.overlayContent}>
+                    <div className={styles.overlayBadge}>PROFESSIONAL</div>
+                    <h3 className={styles.overlayTitle}>Winkshine Expert</h3>
+                    <p className={styles.overlayDescription}>
+                      Trusted by car enthusiasts and professionals worldwide for premium quality results.
+                    </p>
+                  </div>
+                </div>
+                <div className={styles.decorativeElement}></div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Original About Section */}
       <section className="aboutSection">
         <div className="aboutImage">
           <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Car washing at Winkshine" />
@@ -160,11 +162,13 @@ const HomePage: React.FC = () => {
           <p>
             Welcome to Winkshine, where innovation meets excellence in car care. We offer state-of-the-art car wash and auto detailing services, using premium products and the latest technology to give your vehicle a showroom shine.<br /><br />
             <strong>Our Journey</strong><br />
-            Founded in Ahmedabad, our mission is to deliver the best in car washing and detailing. Our dedicated team ensures every customer leaves with a spotless, rejuvenated vehicle and a smile.
+            Founded in Chapi, Gujarat, our mission is to deliver the best in car washing and detailing. Our dedicated team ensures every customer leaves with a spotless, rejuvenated vehicle and a smile.
           </p>
           <button className="aboutBtn">View More</button>
         </div>
       </section>
+
+      {/* Original Why Choose Section */}
       <section className="whyChooseSection">
         <div className="whyChooseContent">
           <h2>Why Choose Winkshine?</h2>
@@ -195,10 +199,11 @@ const HomePage: React.FC = () => {
           <div className="whyChooseImgRow">
             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80" alt="Car wash station" />
             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80" alt="Car wash station" />
-
           </div>
         </div>
       </section>
+
+      {/* Original Products Section */}
       <section className="productsSection">
         <h2 className="productsTitle">Winkshine Products</h2>
         <div className="productsSlider">
@@ -214,7 +219,7 @@ const HomePage: React.FC = () => {
                   <span className="productOldPrice">₹{product.oldPrice}</span>
                   <span className="productPrice">₹{product.price}</span>
                 </div>
-                <button className="addToCartBtn">Add To Cart</button>
+                                    <Link to={`/product/${product.id}`} className="detailsBtn">Details</Link>
               </div>
             ))}
           </div>
@@ -228,6 +233,9 @@ const HomePage: React.FC = () => {
               onClick={() => setProductSlide(idx)}
             />
           ))}
+        </div>
+        <div className="viewAllProductsBtn">
+          <Link to="/products" className="viewAllBtn">View All Products</Link>
         </div>
       </section>
     </>

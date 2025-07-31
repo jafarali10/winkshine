@@ -1,0 +1,110 @@
+.contactInfoContainer {
+  background: white;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px rgba(166,140,182,0.10);
+  width: 100%;
+  max-width: 500px;
+  height: fit-content;
+}
+
+.infoSection {
+  margin-bottom: 2rem;
+}
+
+.infoSection:last-child {
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  font-family: 'Poppins', 'Open Sans', Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.infoText {
+  color: #3B2C35;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-family: 'Poppins', 'Open Sans', Arial, sans-serif;
+  margin: 0;
+}
+
+.infoLink {
+  color: #f68977;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.2s;
+  font-family: 'Poppins', 'Open Sans', Arial, sans-serif;
+}
+
+.infoLink:hover {
+  color: #d96a5a;
+}
+
+.phoneNumbers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.workingHours {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #f68977;
+  color: white;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+}
+
+.socialLink:hover {
+  background: #d96a5a;
+}
+
+@media (max-width: 768px) {
+  .contactInfoContainer {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1rem;
+  }
+  
+  .infoText,
+  .infoLink {
+    font-size: 0.95rem;
+  }
+  
+  .socialLinks {
+    gap: 0.8rem;
+  }
+  
+  .socialLink {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+} 

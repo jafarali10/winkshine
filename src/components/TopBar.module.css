@@ -1,0 +1,116 @@
+.topBar {
+  background: linear-gradient(135deg, #F68977 0%, #F6C177 100%);
+  color: white;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.topBarContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2.5rem;
+}
+
+.contactInfo {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.phoneNumber {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.phoneNumber::before {
+  content: "📞";
+  font-size: 0.8rem;
+}
+
+.socialAndActions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.socialIcon {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.socialIcon:hover {
+  transform: scale(1.1);
+}
+
+.actionIcons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.actionIcon {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease;
+}
+
+.actionIcon:hover {
+  transform: scale(1.1);
+}
+
+.cartCount {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #fff;
+  color: #F68977;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .topBarContainer {
+    padding: 0 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .contactInfo {
+    gap: 1rem;
+  }
+  
+  .socialAndActions {
+    gap: 1rem;
+  }
+} 

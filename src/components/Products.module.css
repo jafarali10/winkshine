@@ -1,0 +1,21 @@
+.productsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.productsContainer h2 {
+  font-size: 2rem;
+  color: #000;
+  font-family: 'Poppins', 'Open Sans', Arial, sans-serif;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.productsContainer p {
+  font-size: 1.1rem;
+  color: #3B2C35;
+  font-family: 'Poppins', 'Open Sans', Arial, sans-serif;
+  line-height: 1.6;
+}
